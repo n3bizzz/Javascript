@@ -191,3 +191,13 @@ height = 10;
 width = 3;
 
 console.log(2*(height*width + height*length + length*width));
+
+
+//преобразования строки в число
+age = "12 65 лет 99";
+width = " 1.6em 9em";
+age=parseInt(age); //для целого числоа, читает из строки  число до первого не числового символа
+console.log(age);
+
+width=parseFloat(width); // для числа с плавающей точкой , работает так же как выше.
+console.log(width);
