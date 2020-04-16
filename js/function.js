@@ -17,6 +17,7 @@ console.log(n+m);
 
 
 //ИМЕННОВАНЫЕ ФУНКЦИИ
+//область видимость у именных фун-ий  - глобальная, что не хорошо, храняться тамже где и основные функции js
 
 //объявление (function) именнованых функции ( имя тут  "getSum")
 function getSum(num1, num2)  // (в () аргументы (тут num1, num2)
@@ -210,3 +211,161 @@ console.log(result);//60
     console.log("cамовызывающаяся функция");
     //meло функции
 }()); //() - вызывают функцию внутри внешних ()
+
+function range(start,end,step=1) {
+let arrRange =[];
+for(let i=start;i<=end;i+=step){
+    arrRange.push(i);
+}
+return arrRange;
+}
+
+let arr1=range(1,29,5);
+console.log(arr1);
+
+//анонимные функции присваиваются переменно
+//могут быть вызваны только после объявления
+// видимость анонимной и стрелочной  в пределох let (в пределах {})
+let subNums = function (num1,num2) {
+    return num1 - num2;
+}; //в аноним. фун-ях после } должна быть ;
+//вызов анонимной функции
+a = 90;
+b = 12;
+let res = sumNums(a,b);
+console.log('res='+res);
+
+//стредочные функции
+//не имеют arguments(псевдомассив который js делает для аргументов других функций)
+//не имеют своего this
+//в () аргументы функции
+// если аргумент один, () можно не писать
+let sqrt = x => x*x;
+//если аргументы не передаются или их больше 1, () - обязательны
+let getFive = () =>5; //если без аргументов то ставим  ()ж
+//если в теле функции 1 инструкция , то можно без {}, если больше то {} обязательны
+//после перечисления аргументов  =>
+subNums = (num1,num2) => num1-num2; //1 вариант описания стрелочной фун-ииб если в теле 1 интсрукция
+//елси одна иннструкция в фун-ии то return есть  по умолчанию , указывать не надо
+subNums = (num1,num2) => { //2 вариант, если несколько инструкций в теле функции
+    let res = 0;
+    if(num1<num2) res = num2 - num1;
+    else res = num1 - num2;
+    return res; //обязательно return , если несколько интсрукций и надо что то вернуть
+};
+
+let sumFun = x => (x>=0) ? x+=10 : x-=10;
+console.log(sumFun(3));
+console.log(sumFun(-30));
+
+
+
+
+//кол бэк функции - которые вызываются из другой,через аргуметы
+function arrFunc(func, someArr) { //передаем другую функцию в эту  + массив
+    let localArr = [];
+    for(let i=0; i<someArr.length;i++)
+        localArr[i]=func(someArr[i]);//вызов функции func
+    return localArr;
+}
+arr= [2,3,0];
+sqrt = num => num*num;
+res = arrFunc(sqrt,arr); //передается только имя функции sqrt, сам вызов происходит в вызывающей фун-ии
+console.log(res);
+res = arrFunc(sumFun,arr);
+console.log(res);
+
+
+//методы работы с массивами
+arr = [12, -34, 0, 44, 33, -10];
+//forEach - позволяет изменять элементы массива
+// анологично циклу for i
+arr.forEach(function(elem,index,array){// можно использовыать и стрелочную функцию (без function, и => перед {)
+    console.log(`Элемент № ${index} = ${elem}`);
+    array[index]*=2; //для изменения элементов необходимо обращаться через индекс
+});
+//тоже самое,  пользоваться чем удобнее
+for(let i=0;i<arr.length;i++){
+    console.log(`Элемент № ${i} = ${arr[i]}`);
+    arr[i]*=2;
+}
+
+//метод filter() - возвращает новый массив, состоящий из элементов, прошедштх проверку
+arr = [12, -34, 0, 44, 33, -10];
+let lessZero = (elem,index,array) => elem < 0; //true если <0 ,false елси >=0;
+let newArr = arr.filter(lessZero);
+console.log(newArr);
+//аналогино записи
+ newArr=[];
+for(let i=0; i<arr.length;i++){
+    if(lessZero(arr[i],i,arr))
+        newArr.push(arr[i]);
+}
+
+//метод map() возвращает новый массив, состящий из элементов, преобразованных переданной функцией
+arr = [12, -34, 0, 44, 33, -10];
+sqrt = (elem, index, array) => elem * elem;
+newArr=arr.map(sqrt);
+console.log(newArr);
+//аналогично записи
+for(let i=0; i<arr.length;i++)
+    newArr.push(sqrt(arr[i], i ,arr));
+
+
+//метод some() возвращает true или false
+//true если хотя бы один элемент удовлетворяют условию переданного функции
+arr = [12, -34, 0, 44, 33, -10];
+lessZero=(elem,index,array) => elem<0;
+res = arr.some(lessZero);
+console.log("some() res = " + res); //true
+
+//метод every () возвращает true или false
+//true если все  элементы удовлетворяют условию переданного функцией
+arr = [12, -34, 0, 44, 33, -10];
+lessZero=(elem,index,array) => elem<0;
+res = arr.every(lessZero);
+console.log("some() res = " + res); //false
+
+//TODO каждый элемент вложенного массива больше 0
+//TODO каждый элемент вложенного массива увеличить на 2
+/*arr = [[1,3,4],
+        [3,7,9],
+        [-90,12,-12]
+    ];
+
+moreZero = (elem,index,array) => {
+    elem.forEach(function(elem1,index1,array1)) {
+
+    }
+};*/
+
+
+let  mouse = {
+    name: "Jerry",
+    speed: 28,
+    printInfo: function () {
+        console.log(`Имя - ${this.name}`);
+        console.log(`Скорость - ${this.speed}`);
+    },
+    changeName: function (newName) {
+        this.name=newName;
+        console.log(`Новое имя - ${this.name}`);
+    }
+};
+mouse.printInfo();
+mouse.changeName('Вася');
+let cat = {
+    name: "Tom",
+    color: "gray",
+    speed: 23,
+    mouses: [],
+    catchMouse: function (someMouse) { // метод объекта
+        if(this.speed<someMouse.speed) { // this(контекст вызова) тоже что и cat тут, ( используется  когда работаешь внутри объекта с его свойствами
+            console.log(`${someMouse.name} сбежала от ${this.name}`);
+            return;
+        }
+        this.mouses.push(someMouse);
+        console.log(`${this.name} поймал ${someMouse.name}`)
+    }
+};
+cat.catchMouse(mouse); // вызвали метод catchMouse  объекта cat
