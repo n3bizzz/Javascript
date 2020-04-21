@@ -134,3 +134,7 @@ cell1.innerText = "Cell 1";
 cell2.innerText = "Cell 2";
 
 tableArea.append(table);
+
+//константы const имена  в верхнем регистре, кажое посл слово через _ (CONST_NAME)
+// имена классов и функций-конструкторов  с заглавной и посл слово тоже с заглавной (ClassName)
+//все остальное varName, var_name

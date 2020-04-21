@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>События формы</title>
+    <link rel="stylesheet" href="css/form-events.css">
+</head>
+<body>
+<form action="#" method="post" name="lesson">
+
+    <fieldset>
+        <legend>Текстовый ввод</legend>
+        <div>
+            <label for="login">Введите логин</label>
+            <input name="login" id="login" type="text">
+            <span class="info-block">
+                Логин должен содержать минимум 3 символа
+            </span>
+        </div>
+        <div>
+            <label for="pwd">Введите пароль</label>
+            <input name="pwd" id="pwd" type="password">
+            <span class="info-block">
+                Пароль должен содержать минимум 6 символов
+            </span>
+        </div>
+    </fieldset>
+
+    <fieldset name="checkbox_fieldset">
+        <legend>Checkbox | Radio</legend>
+        <div>
+            <p>Выбор цвета</p>
+            <label><input  value="lightblue" name="color" type="radio">Синий</label>
+            <label><input  value="yellow" name="color" type="radio">Желтый</label>
+        </div>
+        <div>
+            <p>Отметьте интересующие языки программирования</p>
+            <label><input checked value="php" name="lang[]" type="checkbox">PHP</label>
+            <label><input value="java" name="lang[]" type="checkbox">Java</label>
+            <label><input checked value="python" name="lang[]" type="checkbox">Python</label>
+            <label><input value="ruby" name="lang[]" type="checkbox">Ruby</label>
+        </div>
+        <div>
+            <label><input type="checkbox">Отметьте, если указать другую информацию</label>
+            <input type="text" disabled>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Поля со списком</legend>
+        <label for="countries">Выбор страны</label>
+        <select multiple id="countries" name="countries">
+            <optgroup label="Европа">
+                <option selected value="spain">Испания</option>
+                <option selected value="denmark">Дания</option>
+                <option value="switzerland">Швейцария</option>
+            </optgroup>
+
+            <optgroup label="Африка">
+                <option value="egypt">Египет</option>
+                <option value="zimbabwe">Зимбабве</option>
+                <option value="kenya">Кения</option>
+            </optgroup>
+        </select>
+    </fieldset>
+
+    <input type="submit" value="Отправить">
+    <input type="reset" value="Очистить">
+</form>
+
+
+</body>
+</html>
