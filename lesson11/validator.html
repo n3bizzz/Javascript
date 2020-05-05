@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/validator.js"></script>
+</head>
+<body>
+<!-- validator.js - валидатор
+index.js - использование валидатора для проверки  формы auth-form-->
+    <form name="auth-form">
+        <div>
+            <input data-validate="login" name="login" type="text">
+            <span></span>
+        </div>
+        <div>
+            <input data-validate="password" name="password" type="password">
+            <span></span>
+        </div>
+        <input type="submit" value="Отправить">
+    </form>
+<script src="js/index.js"></script>
+</body>
+</html>
