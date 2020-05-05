@@ -11,7 +11,7 @@ let rules = {
     }
 };
 //если пользуемся сторонним валидатором из библиоткеи или фреймворка, нужно читать документацию
-Validator.setForm(document.forms["auth-from"], rules)
+Validator.setForm(document.forms["auth-form"], rules)
     .setSuccess(()=>{
         console.log("данные можно отправлять на сервер")
     })
