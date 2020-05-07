@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-3.5.1.js"></script>
+
+    <style>
+        .jquery {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #animation {
+            display: flex;
+            flex-direction: column;
+            background: orange;
+            height: 400px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #change {
+            overflow: hidden;
+            height: 300px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+
+<section class="jquery">
+
+    <nav>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li >Фрукты
+                <ul class="submenu">
+                    <li><a href="#">Яблоки</a></li>
+                    <li><a href="#">Апельсины</a></li>
+                    <li><a href="#">Бананы</a></li>
+                </ul>
+            </li>
+            <li>Овощи
+                <ul class="submenu">
+                    <li><a href="#">Морковь</a></li>
+                    <li><a href="#">Капуста</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <table id="table">
+        <caption>Товары</caption>
+        <tr><th>Название</th><th>Стоимость</th></tr>
+        <tr><td>Телефон</td><td>20000</td></tr>
+        <tr><td>Машина</td><td>200000</td></tr>
+        <tr><td>Книга</td><td>2000</td></tr>
+        <tr><td>Диван</td><td>15000</td></tr>
+        <tr><td>Кресло</td><td>17000</td></tr>
+    </table>
+
+    <hr>
+
+    <div id="cards">
+        <div data-present="cat">Подарок</div>
+        <div data-present="dog">Подарок</div>
+        <div data-present="pig">Подарок</div>
+        <div data-present="cow">Подарок</div>
+    </div>
+
+    <div id="cards_info">
+        <h5>Информация по подаркам</h5>
+    </div>
+
+    <hr>
+
+    <div id="color_div"></div>
+
+    <hr>
+
+    <div id="info">
+        <div>
+            <h2>JavaScript</h2>
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+                Ea est facilis iusto laudantium obcaecati,
+                quis recusandae sapiente sed totam veniam.
+            </p>
+        </div>
+        <div>
+            <h2>PHP</h2>
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Ea est facilis iusto laudantium obcaecati,
+                quis recusandae sapiente sed totam veniam.
+            </p>
+        </div>
+        <div>
+            <h2>Python</h2>
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Ea est facilis iusto laudantium obcaecati,
+                quis recusandae sapiente sed totam veniam.
+            </p>
+        </div>
+    </div>
+
+
+
+    <div id="animation">
+        <p>УВЕЛИЧИТЬ</p>
+
+        <p id="change">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur, dignissimos dolor dolorem est
+            et illo impedit laboriosam magni maxime minus modi officiis porro possimus quaerat repudiandae saepe suscipit voluptas.
+        </p>
+
+        <p>УМЕНЬШИТЬ</p>
+    </div>
+</section>
+
+<script src="js/index.js"></script>
+</body>
+</html>
